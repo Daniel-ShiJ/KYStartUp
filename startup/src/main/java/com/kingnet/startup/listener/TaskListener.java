@@ -11,4 +11,5 @@ public interface TaskListener {
     void onWaitRunning(Task task);
     void onStart(Task task);
     void onFinish(Task task,long dw,long df);
+    void onError(Task task,String message);
 }

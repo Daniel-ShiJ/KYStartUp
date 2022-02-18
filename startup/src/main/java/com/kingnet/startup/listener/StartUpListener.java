@@ -6,9 +6,9 @@ package com.kingnet.startup.listener;
  * Description:启动监听
  */
 public interface StartUpListener {
-    void onStartUpStartListener();
+    void onStartUpStartListener(long time);
 
-    void onStartUpErrorListener();
+    void onStartUpErrorListener(String message);
 
-    void onStartUpFinishListener();
+    void onStartUpFinishListener(long time);
 }

@@ -11,4 +11,5 @@ import com.kingnet.startup.LogInfo;
 public interface IStartUp {
     Config getConfig();
     LogInfo getLogInfo();
+    void start();
 }

@@ -11,7 +11,6 @@ import java.util.concurrent.LinkedBlockingQueue;
  */
 public class MainExecutor implements Executor {
     private BlockingQueue<Runnable> mBlockingQueue;//BlockingQueue这个是什么？
-
     public MainExecutor() {
         this.mBlockingQueue = new LinkedBlockingQueue<>();//LinkedBlockingQueue这个是什么？
     }

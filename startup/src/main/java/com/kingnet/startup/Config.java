@@ -1,7 +1,5 @@
 package com.kingnet.startup;
 
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadFactory;
@@ -21,8 +19,8 @@ public class Config {
 
     private static ExecutorService mExecutor;
     private static int mCoreThreadNum = Runtime.getRuntime().availableProcessors();//获取CPU核心数
-    private static int mMaxPoolSize = mCoreThreadNum;//队列最大值
-    private static long mKeepAliveTime = 60L;//包活时间
+    private static int mMaxPoolSize = mCoreThreadNum * 2;//队列最大值
+    private static long mKeepAliveTime = 60L;//保活时间
     private static ThreadFactory mThreadFactory;//线程工厂
 
     public static ExecutorService getExecutor() {
@@ -37,7 +35,7 @@ public class Config {
         return defaultExecutor;
     }
 
-    public static ThreadFactory getThreadFactory() {
+    private static ThreadFactory getThreadFactory() {
         if(null == mThreadFactory)
             mThreadFactory = getDefaultThreadFactory();
         return mThreadFactory;
@@ -48,7 +46,7 @@ public class Config {
             private final AtomicInteger mInteger = new AtomicInteger(1);
             @Override
             public Thread newThread(Runnable r) {
-                return new Thread(r,"StartUp Thread-"+mInteger.getAndIncrement());
+                return new Thread(r,"KY-StartUp Thread-"+mInteger.getAndIncrement());
             }
         };
         return factory;
