@@ -4,15 +4,6 @@ import android.app.Application;
 import android.content.Context;
 import android.os.SystemClock;
 
-import com.kingnet.startup.AndroidStartUp.AAndroidStartUp;
-import com.kingnet.startup.AndroidStartUp.BAndroidStartUp;
-import com.kingnet.startup.AndroidStartUp.CAndroidStartUp;
-import com.kingnet.startup.AndroidStartUp.DAndroidStartUp;
-import com.kingnet.startup.AndroidStartUp.EAndroidStartUp;
-import com.kingnet.startup.AndroidStartUp.FAndroidStartUp;
-import com.kingnet.startup.AndroidStartUp.GAndroidStartUp;
-import com.kingnet.startup.AndroidStartUp.HAndroidStartUp;
-import com.kingnet.startup.Initializer.AInitializer;
 import com.kingnet.startup.KYStartUp;
 import com.kingnet.startup.listener.IStartUp;
 import com.kingnet.startup.listener.StartUpListener;
@@ -25,7 +16,6 @@ import com.kingnet.startup.tasks.ETask;
 import com.kingnet.startup.tasks.FTask;
 import com.kingnet.startup.tasks.GTask;
 import com.kingnet.startup.tasks.HTask;
-import com.rousetime.android_startup.StartupManager;
 
 /**
  * Author:Daniel.ShiJ
@@ -58,7 +48,7 @@ public class DemoApplication extends Application {
 
 
         //StartUp
-        KYStartUp.Builder builder = new KYStartUp.Builder()
+        new KYStartUp.Builder()
                 .setTaskFactory(new CustomTaskFactory())
                 .createTask(ATask.class)
                 .addTask(new BTask())
@@ -80,9 +70,7 @@ public class DemoApplication extends Application {
                     @Override
                     public void onStartUpFinishListener(long time) {
                     }
-                });
-        IStartUp startUp = builder.create(this);
-        startUp.start();
+                }).create(this).start();
 
 
 //         AndroidStartUp 第一种配置方式
