@@ -118,7 +118,8 @@ public class KYStartUp implements IStartUp {
         if(mTaskList.isEmpty())
             return;
         timer = new Timer(SystemClock.uptimeMillis());
-        mStartUpListener.onStartUpStartListener(timer.getStartTime());
+        if (null != mStartUpListener)
+            mStartUpListener.onStartUpStartListener(timer.getStartTime());
         for (Task task : mTaskList) {
             task.start();
         }
@@ -229,6 +230,25 @@ public class KYStartUp implements IStartUp {
         }
     }
 
+
+    private class DefaultStartUpListener implements StartUpListener{
+
+        @Override
+        public void onStartUpStartListener(long time) {
+
+        }
+
+        @Override
+        public void onStartUpErrorListener(String message) {
+
+        }
+
+        @Override
+        public void onStartUpFinishListener(long time) {
+
+        }
+    }
+
     /**
      * 任务状态监听
      */
@@ -253,7 +273,8 @@ public class KYStartUp implements IStartUp {
 
             if(mTaskCount.decrementAndGet() == 0){//所有任务执行完成
                 timer.endTime = SystemClock.uptimeMillis();
-                mStartUpListener.onStartUpFinishListener(timer.getUsedTime());
+                if (null != mStartUpListener)
+                    mStartUpListener.onStartUpFinishListener(timer.getUsedTime());
             }
         }
 

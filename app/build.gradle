@@ -28,11 +28,11 @@ android {
 }
 dependencies {
 
-    implementation project(':startup')
+//    implementation project(':startup')
 
     implementation 'androidx.appcompat:appcompat:1.4.1'
 
-//    implementation 'com.github.Daniel-ShiJ:KYStartUp:v1.0-beta1.0'
+    implementation 'com.github.Daniel-ShiJ:KYStartUp:v1.0-beta1.0'
 
     implementation "androidx.startup:startup-runtime:1.1.0"
 //

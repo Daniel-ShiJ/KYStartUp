@@ -3,6 +3,7 @@ package com.kingnet;
 import android.app.Application;
 import android.content.Context;
 import android.os.SystemClock;
+import android.util.Log;
 
 import com.kingnet.startup.KYStartUp;
 import com.kingnet.startup.listener.IStartUp;
@@ -45,6 +46,8 @@ public class DemoApplication extends Application {
 //        new FTask().execute(base);
 //        new GTask().execute(base);
 //        new HTask().execute(base);
+
+//        getApplicationContext()
 
 
         //StartUp
